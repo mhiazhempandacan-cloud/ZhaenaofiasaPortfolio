@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhaena Ofiasa / Portfolio</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter + Space Grotesk for extra catchiness -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(125deg, #f9e7d2, #ffe5d9, #f3d9f1, #d4e0f5);
+      background-size: 300% 300%;
+      animation: gradientWave 15s ease infinite;
+      color: #1f1a2e;
+    }
+
+    @keyframes gradientWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* main card – glassmorphism + glow */
+    .portfolio-card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 240, 235, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 3rem;
+      box-shadow: 0 30px 60px -15px rgba(149, 88, 73, 0.4), 0 0 0 2px rgba(255, 220, 200, 0.6) inset, 0 0 30px #ffbba0;
+      padding: 2.8rem 2.5rem;
+      transition: box-shadow 0.4s, transform 0.3s;
+      border: 1px solid #ffd9c9;
+    }
+
+    .portfolio-card:hover {
+      box-shadow: 0 40px 70px -10px #c38e7b, 0 0 0 3px #ffb093 inset, 0 0 50px #ffb6a0;
+      transform: scale(1.005);
+    }
+
+    /* HEADER – with bounce & spark */
+    .header-tag {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.2rem;
+      border-bottom: 3px dotted #ff9570;
+      padding-bottom: 1.2rem;
+    }
+
+    .name-badge h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #3d2b23, #7a4e3b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.1;
+      text-shadow: 2px 2px 20px #ffc2a1;
+    }
+
+    .name-badge .sub-id {
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: #feb89f;
+      display: inline-block;
+      padding: 0.4rem 1.6rem;
+      border-radius: 60px;
+      margin-top: 0.5rem;
+      color: #2f201b;
+      border: 1px solid #ff8a70;
+      box-shadow: 0 5px 0 #aa6d58;
+      transform: rotate(-0.5deg);
+      transition: 0.2s;
+    }
+
+    .sub-id i {
+      color: #4d2e23;
+    }
+
+    .sub-id:hover {
+      transform: rotate(0deg) translateY(-3px);
+      box-shadow: 0 8px 0 #aa6d58;
+    }
+
+    /* 3NORTH badge – catchy bounce & glow */
+    .three-north-symbol {
+      background: #211814;
+      color: #fcdac9;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      box-shadow: 0 10px 0 #8a5f4b, 0 0 15px #ffa07a;
+      transform: rotate(1.5deg);
+      transition: all 0.25s ease;
+      animation: subtleSwing 4s infinite;
+      border: 1px solid #ffb694;
+    }
+
+    @keyframes subtleSwing {
+      0% { transform: rotate(1deg) translateY(0); }
+      50% { transform: rotate(-1deg) translateY(-4px); box-shadow: 0 12px 0 #8a5f4b, 0 0 25px #ffbca4; }
+      100% { transform: rotate(1deg) translateY(0); }
+    }
+
+    .three-north-symbol i {
+      margin: 0 0.3rem;
+      color: #ffbfa3;
+      text-shadow: 0 0 8px #ffd9c0;
+    }
+
+    .three-north-symbol:hover {
+      animation: none;
+      transform: scale(1.08) rotate(0deg);
+      background: #2f221d;
+      box-shadow: 0 12px 0 #7a5340, 0 0 40px #ffb698;
+    }
+
+    /* grid */
+    .grid-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    /* cards – with intense hover glow */
+    .info-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 2.2rem;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 18px 35px -10px #b4836d, 0 0 0 1.5px #ffc6ad inset;
+      transition: 0.25s ease-out;
+      border: 1px solid #ffe2d1;
+    }
+
+    .info-card:hover {
+      background: rgba(255, 245, 240, 0.9);
+      border-color: #ff9366;
+      box-shadow: 0 30px 45px -12px #a55e45, 0 0 0 3px #feae8b inset, 0 0 45px #ffa37c;
+      transform: translateY(-8px) scale(1.01);
+    }
+
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.3px;
+      color: #5b3a2b;
+      margin-bottom: 1.3rem;
+      border-left: 7px solid #ff9066;
+      padding-left: 1rem;
+    }
+
+    .info-card h3 i {
+      color: #d95f39;
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 5px #ffb08a);
+    }
+
+    /* personal list */
+    .personal-list p {
+      margin: 0.8rem 0;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px dashed #f9bc9e;
+      padding-bottom: 0.6rem;
+    }
+
+    .personal-list i {
+      width: 2rem;
+      color: #cf6848;
+      font-size: 1.5rem;
+    }
+
+    /* career objective with glitter */
+    .career-obj {
+      font-size: 1.1rem;
+      background: #fbeae1;
+      padding: 1.2rem 1.5rem;
+      border-radius: 2rem;
+      color: #361f18;
+      font-style: italic;
+      border: 1px solid #feab88;
+      box-shadow: 0 6px 0 #cf8a70, inset 0 0 20px #fff3e5;
+      transition: 0.2s;
+    }
+
+    .career-obj:hover {
+      background: #fff2e9;
+      box-shadow: 0 8px 0 #b57359, inset 0 0 30px #ffe2d1;
+    }
+
+    /* skills chips – energetic */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .skill-chip {
+      background: #fecbb3;
+      color: #2c1e19;
+      padding: 0.6rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid #fc9f7c;
+      box-shadow: 0 5px 0 #b26144;
+      transition: 0.15s;
+      cursor: default;
+      animation: chipPop 0.4s ease;
+    }
+
+    @keyframes chipPop {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      100% { transform: scale(1); }
+    }
+
+    .skill-chip:hover {
+      background: #feb292;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 0 #a35134;
+    }
+
+    /* project grid */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .project-item {
+      background: #ffede3;
+      border-radius: 1.8rem;
+      padding: 1.1rem 1.3rem;
+      border: 1px solid #fcae8a;
+      transition: 0.3s;
+      box-shadow: 0 4px 0 #c2866c;
+    }
+
+    .project-item:hover {
+      background: #ffe1d2;
+      border-color: #fe814e;
+      transform: translateX(8px) scale(1.02);
+      box-shadow: 0 7px 0 #b16345;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #613f30;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .project-title i {
+      color: #d95f32;
+      font-size: 1.4rem;
+    }
+
+    .project-desc {
+      margin-left: 2.2rem;
+      font-size: 0.98rem;
+      color: #523b30;
+      font-weight: 500;
+    }
+
+    /* contact items with shake effect */
+    .contact-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      background: #ffebe0;
+      border-radius: 80px;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.05rem;
+      border: 1.5px solid #fc9f7c;
+      box-shadow: 0 6px 0 #b26144;
+      transition: 0.2s;
+      width: fit-content;
+    }
+
+    .contact-item i {
+      color: #ba4f2c;
+      font-size: 1.3rem;
+      width: 1.8rem;
+    }
+
+    .contact-item:hover {
+      background: #ffd5be;
+      transform: translateY(-4px) rotate(0.5deg);
+      box-shadow: 0 9px 0 #9e5038;
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0%,100% { transform: translateY(-4px) rotate(0deg); }
+      25% { transform: translateY(-4px) rotate(1deg); }
+      75% { transform: translateY(-4px) rotate(-1deg); }
+    }
+
+    .contact-item a {
+      text-decoration: none;
+      color: #341f18;
+      font-weight: 600;
+    }
+
+    /* footer extra catchy */
+    .unique-footer {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 3px dashed #feaa80;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 1rem;
+      color: #452e25;
+    }
+
+    .footer-tag {
+      background: #fdbc9d;
+      border-radius: 40px;
+      padding: 0.4rem 1.8rem;
+      font-weight: 600;
+      border: 1px solid #fe8f64;
+      box-shadow: 0 4px 0 #ad6b51;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-tag i {
+      margin-right: 0.5rem;
+      color: #542f21;
+    }
+
+    .footer-tag:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 0 #ad6b51;
+      background: #fdaf8a;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .portfolio-card { padding: 1.8rem 1.2rem; }
+      .name-badge h1 { font-size: 2.4rem; }
+      .three-north-symbol { font-size: 1.2rem; padding: 0.5rem 1.2rem; }
+      .grid-details { grid-template-columns: 1fr; }
+      .header-tag { flex-direction: column; align-items: flex-start; }
+      div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    }
+
+    /* two column for projects/contact */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0 1rem;
+    }
+
+    /* extra sparkles */
+    .glow-text {
+      background: linear-gradient(45deg, #ff7b4a, #ffb197);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="portfolio-card">
+    <!-- HEADER with 3north spark -->
+    <div class="header-tag">
+      <div class="name-badge">
+        <h1>Zhaena Ofiasa</h1>
+        <span class="sub-id"><i class="fa-regular fa-compass"></i> 3NORTH<i class="fa-regular fa-star" style="color: #ffb56b;"></i></span>
+      </div>
+      <div class="three-north-symbol">
+        <i class="fa-regular fa-snowflake"></i> 3NORTH <i class="fa-regular fa-sparkles"></i>
+      </div>
+    </div>
+
+    <!-- FIRST ROW: personal, objective, skills -->
+    <div class="grid-details">
+      <!-- PERSONAL -->
+      <div class="info-card">
+        <h3><i class="fa-regular fa-id-card"></i> personal</h3>
+        <div class="personal-list">
+          <p><i class="fa-regular fa-user"></i> Zhaena Ofiasa</p>
+          <p><i class="fa-regular fa-graduation-cap"></i> BS Information Technology</p>
+          <p><i class="fa-regular fa-calendar"></i> 3rd Year · 2nd sem</p>
+          <p><i class="fa-regular fa-location-dot"></i> 3North</p>
+        </div>
+      </div>
+
+      <!-- CAREER OBJECTIVE + catchy motto -->
+      <div class="info-card">
+        <h3><i class="fa-regular fa-bullseye"></i> objective</h3>
+        <div class="career-obj">
+          <i class="fa-regular fa-quote-left" style="color:#cf6848;"></i> 
+          To obtain a challenging role in the IT field where I can apply my knowledge in programming, design, and system development while gaining professional experience and contributing to organizational success.
+          <i class="fa-regular fa-quote-right" style="color:#cf6848;"></i>
+        </div>
+       </div>
+
+      <!-- SKILLS (pop out) -->
+      <div class="info-card">
+        <h3><i class="fa-regular fa-code"></i> skills</h3>
+        <div class="skills-container">
+          <span class="skill-chip">Basic HTML</span>
+          <span class="skill-chip">CSS</span>
+          <span class="skill-chip">CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWO COLUMN: PROJECTS + CONTACT (catchy) -->
+    <div class="two-col">
+      <!-- PROJECTS card with full descriptions -->
+      <div class="info-card" style="margin:0;">
+        <h3><i class="fa-regular fa-folder-open"></i> projects</h3>
+          <div class="project-item">
+            <div class="project-title"><i class="fa-regular fa-leaf"></i> Mobile Application Proposal</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title"><i class="fa-regular fa-cloud-sun"></i> Portfolio</div>
+        </div>
+        <p style="margin-top: 1.2rem; background: #fec6ad; border-radius: 40px; padding: 0.3rem 1.2rem; width: fit-content; font-weight:600; border:1px solid #fd946b;"><i class="fa-regular fa-plus"></i> 2 more private prototypes</p>
+      </div>
+
+      <!-- CONTACT card with punch -->
+      <div class="info-card" style="margin:0;">
+        <h3><i class="fa-regular fa-address-book"></i> contact</h3>
+        <div class="contact-flex">
+          <div class="contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <a href="mailto:zhaena.ofiasa@3north.dev">zhaenaofiasa@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-regular fa-phone"></i>
+            <span>+63 912 345 6789</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <a href="#">/zhaena3north</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-regular fa-paper-plane"></i>
+            <span>Facebook: Zhaena Ofiasa</span>
+          </div>
+        </div>
+        <!-- extra catchy location -->
+        <p style="margin-top: 1.2rem; background: #fbb797; border-radius: 30px; padding: 0.4rem 1.3rem; color:#2f201b; font-weight:600; border:1px solid #f48152;"><i class="fa-regular fa-map-pin"></i> 3North hall · digital garden · open for collab</p>
+      </div>
+    </div>
+
+    <!-- FOOTER with announcement twist -->
+    <div class="unique-footer">
+      <span class="footer-tag"><i class="fa-regular fa-chalkboard-user"></i> Zhaena Ofiasa - Portfolio</span>
+      <span style="display: flex; gap: 0.6rem; align-items:center; background: #ffdac8; padding:0.4rem 1.2rem; border-radius: 30px;"><i class="fa-regular fa-crown" style="color:#a14524;"></i> <strong>3rd North-2nd SEM</strong> <i class="fa-regular fa-sparkles" style="color:#c95830;"></i></span>
+    </div>
+  </div>
+</body>
+</html>
